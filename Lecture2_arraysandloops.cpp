@@ -50,6 +50,7 @@ int main()
   }
   
   // Check if we won: just check wining for now (students add ties/loss)
+  // Cannot use switch on strings so must be if/else (string doesn't have a hash ... map does though)
   if (computer == "rock") {
       if (player == "paper") {
           cout << "You Win!\n";
