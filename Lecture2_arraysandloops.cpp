@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <array>
 
+// Usually wouldn't use std::string, just for example
 using std::cout, std::string, std::cin;
 
 int main()
