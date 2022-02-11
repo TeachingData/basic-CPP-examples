@@ -6,3 +6,5 @@ Repository of C++ example programs used in lectures or as supplements for teachi
 3. Lecture 3: Introduced vectors and reviews control structures (switch) by updating Lecture 2's code
 4. VectorPart1 is a version of the completed homework; Lecture 4 adds a few functions to rock, paper, scissors
 5. SchedulerPart1: First version which students will use to complete an assignment.
+6. Header Directory: Directory with first header introductory code
+7. StructureExample: A very basic example of a structure and passing by reference
