@@ -2,6 +2,7 @@
 #define UI_H
 
 bool check_for_exit(std::string);
-int get_menu_choice(const std::array<std::string,5> &choices);
+// The next line will build but then break on compile - why?
+int get_menu_choice(const std::array<std::string,5>);
 
 #endif
