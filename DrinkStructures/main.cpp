@@ -19,11 +19,21 @@ int main() {
   do {
     // vector should push_back in function (this is a void)
     switch (get_menu_choice(choices)) {
-        case 0: add_drink();
-        case 1: change_calories();
-        case 2: change_sugar();
-        case 3: print_drinks();
-        case 4: exit_check = false;
+        case 0: 
+          add_drink();
+          break;
+        case 1: 
+          change_calories();
+          break;
+        case 2: 
+          change_sugar();
+          break;
+        case 3: 
+          print_drinks();
+          break;
+        case 4: 
+          exit_check = false;
+          break;
     }
   } while (exit_check);
 }
