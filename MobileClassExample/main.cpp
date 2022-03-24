@@ -2,8 +2,7 @@
 #include "Mobile.cpp"
 
 int main() {
-  // Just used to show the basic object creation and calls to the class
-    Mobile m = Mobile();
+    Mobile m = Mobile(1231516, 1234546);
     std::cout << "the IMEI is " << m.IMEI << "\n";
 
     m.setstorage(128);
@@ -11,6 +10,8 @@ int main() {
 
     m.setsimtype("ESIM");
     std::cout << "Your sim is a " << m.getsimtype() << "\n";
-    m.send_text("Yeah! Text!");
+
+    m.setdate(24, 2022, "march");
+    std::cout << "The date today is " << m.getdate() << "\n";
     return 0;
 }
