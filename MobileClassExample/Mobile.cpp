@@ -26,11 +26,49 @@ public:
         sim_id = abs(gen32());
     }
 
+    // Overloaded Constructor
+    Mobile(long imei) {
+        std::mt19937 gen32;
+        IMEI = imei;
+        sim_id = abs(gen32());
+    }
+
+    // Overloaded Constructor
+    Mobile(long imei, long sim) {
+        IMEI = imei;
+        sim_id = sim;
+    }
+
     // getter and setters for private functions
 
     // setter for date a virtual member - composed of 3 ints (year, month, day)
     void setdate(int year, int month, int day) {
+        //this->year = year;
+        Mobile::year = year; // line above is same as this
+        this->month = month;
+        this->day = day;
+    }
+
+    // create a function (overloaded) for int year, int day, string month - convert the month
+    void setdate(int day, int year, string month) {
         this->year = year;
+        this->day = day;
+
+        // switch doesn't work on string so you could create a char array and then do that or
+        // A simple if/else if/else ... or....
+        string months[] = {"january", "febuary", "march", "april"};
+        // and rest of them
+        for (int i=0; i<=months->size(); i++) {
+            if (month == months[i]) {
+                this->month = i+1;
+            }
+        }
+
+    }
+
+    // valid overload -but terrible name
+    void settoday(int month, int day) {
+        year = 2022;
         this->month = month;
         this->day = day;
     }
