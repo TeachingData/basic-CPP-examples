@@ -37,14 +37,21 @@ public:
         this->simid = simid;
     }
 
+    // NOTE: set_date and set_date are considered overloaded functions because they have the same name
+    // but different parameters (part of polymorphism). This allows us to use a good descriptive name for 
+    // functions which do the same thing but using different input
     void set_date(int month, int day, int year) {
-        // Overload pt2: this sets date with ints passed
+        // Overload pt2: this sets date with ints passed (standard way)
         this->year = year;
         this->month = month;
         this->day = day;
     }
+    
+    // 1st overload: sets the date with a written month and int day/year: March 03 2022
+    void set_date(std::string month, int day, int year);
 
-    // overloaded and inlined at bottom
+    // final overloaded - it takes a full string and splits it - and inlined at bottom
+    // for "02/13/47" or "8--10--2022" or ...
     void set_date(std::string date, std::string delimiter);
 
     int get_year() {return year; }
@@ -86,6 +93,22 @@ public:
         return "Hello?!";
     }
 };
+
+inline void Mobile::set_date(std::string month, int day, int year) {
+    this->day = day;
+    this->year = year;
+    
+    // run through month appriviations and assign a number as needed
+    const std::string months[] = {"jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"};
+    for (int i = 0; i <= 12; i++) {
+        if (months[i] == month) {
+            this->month = i+1;
+            // end loop cause we done
+            break;
+        }
+    }
+    
+}
 
 inline void Mobile::set_date(std::string date, std::string delimiter = "/") {
     // Whereas this parses a string and splits it into its numbers
