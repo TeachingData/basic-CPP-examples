@@ -99,7 +99,8 @@ inline void Mobile::set_date(std::string month, int day, int year) {
     this->year = year;
     
     // run through month appriviations and assign a number as needed
-    const std::string months[] = {"jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"};
+    const std::string months[] = {"jan", "feb", "mar", "apr", "may", 
+                                  "jun", "jul", "aug", "sep", "oct", "nov", "dec"};
     for (int i = 0; i <= 12; i++) {
         if (months[i] == month) {
             this->month = i+1;
