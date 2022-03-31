@@ -11,7 +11,7 @@ int main() {
     m.setsimtype("ESIM");
     std::cout << "Your sim is a " << m.getsimtype() << "\n";
 
-    m.setdate(24, 2022, "march");
-    std::cout << "The date today is " << m.getdate() << "\n";
+    m.date.setdate(24, 2022, "march");
+    std::cout << "The date today is " << m.date.getdate() << "\n";
     return 0;
 }
