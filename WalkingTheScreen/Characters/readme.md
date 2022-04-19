@@ -1,0 +1,1 @@
+This is the main abstract class used as an example. I would normally not put an abstract in just a header file but the idea was to move to a template or interface (its nearly one as is) which I would make just a header.
