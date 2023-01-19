@@ -1,22 +1,31 @@
+#include <array>
 #include <iostream>
-// version: pre_release 0.3 - Now let's add a while loop to get the input
+// version: pre_release 0.35 - Now let's add a while loop to get the input &
+// array
 
 int main() {
+  // ten drinks and choice. also a counter to keep track of index
   int choice = 0;
+  std::array<int, 10> drink_choices;
+  int count = 0;
 
-  while (true) {
+  // could use a for loop but that would require a nested while loop (only
+  // increase index for correct choice)
+  while (count < 10) {
     // Explaination of options using multiline cout
     std::cout
         << "The options are as follows\n"
         << "\tcoffee=1\n\ttea=2\n\tsoda=3\n\tmilk=4\n"
         << "\tmaccichiato=5\n\tsports drink=6\n\tenergy drink=7\n\twater=8\n\n"
-        << "Please enter your choice[ ]\b\b";
+        << "Please enter your " << count + 1 << " choice[ ]\b\b";
 
     std::cin >> choice;
 
     // verification: we will remove this later
-    if (choice < 8) {
-      break;
+    if (choice < 9) {
+      drink_choices[count] = choice;
+      // make sure you increment the count or we will be stuck!
+      count++;
     } else {
       std::cout << "Enter a correct option to calculate your hydration level\n";
     }
@@ -27,6 +36,7 @@ int main() {
 
   // switch value to see if case found
   // don't have to exit here cause we just ignore (add zero)
+  // this will still only look at the last choice
   switch (choice) {
   case 1:
   case 2:
