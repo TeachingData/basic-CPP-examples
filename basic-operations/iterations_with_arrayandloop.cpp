@@ -1,42 +1,54 @@
 #include <iostream>
-// version: pre_release 0.1
-
+// version: pre_release 0.2 - we add a summation and split out the prints
 
 int main() {
   int choice = 0;
-  
+
   // Explaination of options using multiline cout
-  std::cout << "The options are as follows\n"
-       << "\tcoffee=1\n\ttea=2\n\tsoda=3\n\tmilk=4\n"
-       << "\tmaccichiato=5\n\tsports drink=6\n\tenergy drink=7\n\twater=8\n\n"
-       << "Please enter your choice[ ]\b\b";
+  std::cout
+      << "The options are as follows\n"
+      << "\tcoffee=1\n\ttea=2\n\tsoda=3\n\tmilk=4\n"
+      << "\tmaccichiato=5\n\tsports drink=6\n\tenergy drink=7\n\twater=8\n\n"
+      << "Please enter your choice[ ]\b\b";
 
   std::cin >> choice;
 
-  /* could use the below but easier if already using switch to use switch
-  if (choice > 8 || choice < 1) {
-    std::cout << "This is not a valid choice!\n";
-    exit(1);
-  }
-  */
-  
+  // total is not really needed here but we will use in later iterations
+  int total_hydration = 0;
+
   // switch value to see if case found
-  switch(choice) {
-    case 1: case 2: case 3:
-      std::cout << "you bad\n";
-      break;
-    case 4: case 6:
-      std::cout << "you're okay\n";
-      break;
-    case 5: case 7:
-      std::cout << "you're very bad\n";
-      break;
-    case 8:
-      std::cout << "you good\n";
-      break;
-    default:
-      // see now we validate it here
-      std::cout << "That is not a valid option! See ya!\n";
-      exit(1);
-    }
+  // don't have to exit here cause we just ignore (add zero)
+  switch (choice) {
+  case 1:
+  case 2:
+  case 3:
+    total_hydration += 1;
+    break;
+  case 4:
+  case 6:
+    total_hydration += 0;
+    break;
+  case 5:
+  case 7:
+    total_hydration += 2;
+    break;
+  case 8:
+    total_hydration += -1;
+    break;
+  default:
+    // see now we validate it here
+    total_hydration += 0;
+  }
+
+  if (total_hydration < 0) {
+    std::cout << "You might have overdone it\n";
+  } else if (total_hydration == 0) {
+    std::cout << "You are perfectly hydrated.\n";
+  } else if (total_hydration > 0 && total_hydration <= 4) {
+    std::cout << "You're at a good hydration level.\n";
+  } else if (total_hydration > 4 && total_hydration <= 8) {
+    std::cout << "You're okay but drink a bit of water.\n";
+  } else {
+    std::cout << "Drink some water!\n";
+  }
 }
