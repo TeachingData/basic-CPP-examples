@@ -1,5 +1,6 @@
 #include <iostream>
-// version: pre_release 0.2 - we add a summation and split out the prints
+// version: pre_release 0.25 - we add a summation and split out the prints but
+// we don't need the 0 adds (adding 0 is nothing)
 
 int main() {
   int choice = 0;
@@ -24,10 +25,6 @@ int main() {
   case 3:
     total_hydration += 1;
     break;
-  case 4:
-  case 6:
-    total_hydration += 0;
-    break;
   case 5:
   case 7:
     total_hydration += 2;
@@ -35,9 +32,6 @@ int main() {
   case 8:
     total_hydration += -1;
     break;
-  default:
-    // see now we validate it here
-    total_hydration += 0;
   }
 
   if (total_hydration < 0) {
