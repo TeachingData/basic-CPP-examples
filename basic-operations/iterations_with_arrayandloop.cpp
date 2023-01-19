@@ -1,18 +1,26 @@
 #include <iostream>
-// version: pre_release 0.25 - we add a summation and split out the prints but
-// we don't need the 0 adds (adding 0 is nothing)
+// version: pre_release 0.3 - Now let's add a while loop to get the input
 
 int main() {
   int choice = 0;
 
-  // Explaination of options using multiline cout
-  std::cout
-      << "The options are as follows\n"
-      << "\tcoffee=1\n\ttea=2\n\tsoda=3\n\tmilk=4\n"
-      << "\tmaccichiato=5\n\tsports drink=6\n\tenergy drink=7\n\twater=8\n\n"
-      << "Please enter your choice[ ]\b\b";
+  while (true) {
+    // Explaination of options using multiline cout
+    std::cout
+        << "The options are as follows\n"
+        << "\tcoffee=1\n\ttea=2\n\tsoda=3\n\tmilk=4\n"
+        << "\tmaccichiato=5\n\tsports drink=6\n\tenergy drink=7\n\twater=8\n\n"
+        << "Please enter your choice[ ]\b\b";
 
-  std::cin >> choice;
+    std::cin >> choice;
+
+    // verification: we will remove this later
+    if (choice < 8) {
+      break;
+    } else {
+      std::cout << "Enter a correct option to calculate your hydration level\n";
+    }
+  }
 
   // total is not really needed here but we will use in later iterations
   int total_hydration = 0;
