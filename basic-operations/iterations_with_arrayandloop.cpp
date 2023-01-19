@@ -1,7 +1,7 @@
 #include <array>
 #include <iostream>
-// version: pre_release 0.35 - Now let's add a while loop to get the input &
-// array
+// version: release 1 - finally let's add the foreach loop (or c-style for
+// loop)
 
 int main() {
   // ten drinks and choice. also a counter to keep track of index
@@ -34,22 +34,23 @@ int main() {
   // total is not really needed here but we will use in later iterations
   int total_hydration = 0;
 
-  // switch value to see if case found
-  // don't have to exit here cause we just ignore (add zero)
-  // this will still only look at the last choice
-  switch (choice) {
-  case 1:
-  case 2:
-  case 3:
-    total_hydration += 1;
-    break;
-  case 5:
-  case 7:
-    total_hydration += 2;
-    break;
-  case 8:
-    total_hydration += -1;
-    break;
+  for (auto c : drink_choices) {
+    // switch value to see if case found
+    // don't have to exit here cause we just ignore (add zero)
+    switch (c) {
+    case 1:
+    case 2:
+    case 3:
+      total_hydration += 1;
+      break;
+    case 5:
+    case 7:
+      total_hydration += 2;
+      break;
+    case 8:
+      total_hydration += -1;
+      break;
+    }
   }
 
   if (total_hydration < 0) {
