@@ -8,7 +8,6 @@
 using std::string;
 using std::cout;
 using std::stringstream;
-using std::
 
 int main() {
   // change the string to whatever you want
