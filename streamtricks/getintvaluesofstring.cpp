@@ -24,8 +24,8 @@ int main() {
   }
 
   cout << "The integer representation of the string is " << numbers.rdbuf() << "\n";  
-  // using .rdbuf() to flush the buffer (convert it to string basically) and output it
-  //       it actually just returns a pointer to the held data for output
+  // using .rdbuf() to flush the buffer (basically) and output it
+  //       it returns a pointer to the held data for output
   //       see: https://cplusplus.com/reference/ios/ios/rdbuf/
   // prints '9811198' which are the ascii values of 'b' 'o' 'b'
   // if you just want the string representation (i.e. convert it to a string) you'd use .str()
