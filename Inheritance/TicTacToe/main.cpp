@@ -25,6 +25,14 @@ int main() {
 
     std::cout << "Please select a grid location x (0-2): ";
     std::cin >> x;
+    try {
+      if (std::cin.fail()) {
+        throw "error";
+      }
+    } catch (const char *error) {
+      std::cout << error << "\n";
+      exit(-1);
+    }
     std::cout << "Please select a grid location y (0-2): ";
     std::cin >> y;
     if (i % 2) {
